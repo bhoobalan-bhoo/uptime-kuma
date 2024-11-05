@@ -215,10 +215,10 @@ ARG DIST=dist.tar.gz
 RUN chmod +x /app/extra/upload-github-release-asset.sh
 
 # Full Build
-# RUN tar -zcvf $FILE app
-# RUN /app/extra/upload-github-release-asset.sh github_api_token=$GITHUB_TOKEN owner=louislam repo=uptime-kuma tag=$VERSION filename=$FILE
-RUN echo "Listing directories in /app:" && ls /app
-RUN echo "Listing directories in ./" && ls /
+RUN tar -zcvf $FILE app
+RUN /app/extra/upload-github-release-asset.sh github_api_token=$GITHUB_TOKEN owner=louislam repo=uptime-kuma tag=$VERSION filename=$FILE
+# RUN echo "Listing directories in /app:" && ls /app
+# RUN echo "Listing directories in ./" && ls /
 # Dist only
-RUN cd /app && tar -zcvf $DIST dist
-RUN /app/extra/upload-github-release-asset.sh github_api_token=$GITHUB_TOKEN owner=louislam repo=uptime-kuma tag=$VERSION filename=/app/$DIST
+# RUN cd /app && tar -zcvf $DIST dist
+# RUN /app/extra/upload-github-release-asset.sh github_api_token=$GITHUB_TOKEN owner=louislam repo=uptime-kuma tag=$VERSION filename=/app/$DIST
